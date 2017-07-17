@@ -56,8 +56,9 @@ The original image is shown below.:
 
 ![alt text][image5]
 
-6. Modified the draw_lines() function in order to draw a single line on the left and right lanes. 
+6. Lines are drawn as continuous straight lines
 
+Modified the draw_lines() function in order to draw a single line on the left and right lanes. 
 The correction items are described below.
  First, both lines of the lane are classified as a left line and a right line. In addition, based on the lane angle range, a valid line will be selected. The maximum and minimum Y coordinate values are calculated from the selected lane. The X coordinate is calculated from the calculated Y coordinate and the average of the slope. The coordinates of both ends of the calculated left and right line are the coordinates of both ends of the lane. Display the lane by drawing the coordinates of both ends as lines.
 
