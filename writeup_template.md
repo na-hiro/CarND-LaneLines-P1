@@ -57,7 +57,7 @@ The correction items are described below.
 
 ### 2. Identify potential shortcomings with your current pipeline
 The assignment is described below.
-For A and B, the lane trace was stably confirmed. For C, it was confirmed that there were several problems. The problems are as follows. It was confirmed that the detection became unstable in the curve and shadow areas. 
+For solidWhiteRight.mp4 and solidYellowLeft.mp4, the lane trace was stably confirmed. For challenge.mp4, it was confirmed that there were several problems. The problems are as follows. It was confirmed that the detection became unstable in the curve and shadow areas. 
 
 
 
