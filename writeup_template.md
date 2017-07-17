@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 ### Reflection
 
 
-###1. Pipeline Description
+### 1. Pipeline Description
 
 My pipeline consisted of 6 steps.
 
