@@ -15,33 +15,55 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
+[image0]: ./report/ori.jpg "Original"
+[image1]: ./report/gray.jpg "Grayscale"
+[image2]: ./report/blur.jpg "Blur"
+[image3]: ./report/edge.jpg "Edge"
+[image4]: ./report/mask.jpg "Mask"
+[image4]: ./report/hough.jpg "Hough"
+[image6]: ./report/lines.jpg "Lines"
 
 ---
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+###1. Pipeline Description
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+My pipeline consisted of 6 steps.
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+The original image is shown below.:
+![alt text][image0]
 
+1. The original image is converted to a grayscale image.
 ![alt text][image1]
 
+2. Noise is removed by applying a smoothing filter to the grayscale image.  The applied filter is the Gaussian Blur, with kernel size = 5.
+![alt text][image2]
+
+3. Edges are detected from noise-removed images by applying canny's edge detection algorithm.
+![alt text][image3]
+
+4. By specifying the area where the lane is located, only the edge of the lane is extracted from the edge detection image.
+![alt text][image4]
+
+5. Applied Hough Transform to find line segments.
+![alt text][image5]
+
+6. Modified the draw_lines() function in order to draw a single line on the left and right lanes. 
+The correction items are described below.
+ First, both lines of the lane are classified as a left line and a right line. In addition, based on the lane angle range, a valid line will be selected. The maximum and minimum Y coordinate values are calculated from the selected lane. The X coordinate is calculated from the calculated Y coordinate and the average of the slope. The coordinates of both ends of the calculated left and right line are the coordinates of both ends of the lane. Display the lane by drawing the coordinates of both ends as lines.
+![alt text][image6]
 
 ### 2. Identify potential shortcomings with your current pipeline
+The assignment is described below.
+For A and B, the lane trace was stably confirmed. For C, it was confirmed that there were several problems. The problems are as follows. It was confirmed that the detection became unstable in the curve and shadow areas. 
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+The improvement plans are shown below.
+It is presumed that this is due to the fact that the lane is approximated by a linear equation and the parameters related to lane detection are fixed values. Therefore, as an improvement plan, there are mainly two points. 
+The first point is to approximate the detection result by a nonlinear line such as a quadratic equation.
+The second point is adaptively changing parameters such as threshold according to the lane situation. In order to adaptively update the parameters, more detailed image analysis is required.
