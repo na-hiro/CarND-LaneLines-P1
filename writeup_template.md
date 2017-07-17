@@ -60,6 +60,7 @@ The original image is shown below.:
 
 The correction items are described below.
  First, both lines of the lane are classified as a left line and a right line. In addition, based on the lane angle range, a valid line will be selected. The maximum and minimum Y coordinate values are calculated from the selected lane. The X coordinate is calculated from the calculated Y coordinate and the average of the slope. The coordinates of both ends of the calculated left and right line are the coordinates of both ends of the lane. Display the lane by drawing the coordinates of both ends as lines.
+
 ![alt text][image6]
 
 ### 2. Identify potential shortcomings with your current pipeline
